@@ -115,6 +115,7 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
       --skipZeros \
       -o heatmap.gz 
 reference-point mode则是给定一个bed file，以某个点为中心开始统计信号（TSS/TES/center）。但实际上我在尝试的时候regionBdoyLength参数也还是可以用的，所以估计和scale-regions区别也不是太大，主要是作图的一点区别。
+
     computeMatrix reference-point \ # choose the mode
        --referencePoint TSS \ # alternatives: TES, center
        -b 3000 -a 10000 \ # define the region you are interested in
