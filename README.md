@@ -47,3 +47,25 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
       --genome_lib_dir CTAT_resource_lib \
       -J Chimeric.out.junction \
       --output_dir star_fusion_outdir
+
+## BAM 文件统计和可视化
+### Deeptools （三大功能：1. BAM & Bigwig格式文件处理；2. QC检测 3. 热图和metaplot）
+    # 处理器数目设定
+     -p max/2
+     
+    # 针对指定区域进行处理
+     --region chr2:10000-20000
+
+    # ignoreDuplicates参数去除重复序列，针对匹配到同一方向同一起点的序列，只保留一个
+     -- ignoreDuplicates
+
+    # 匹配得分阈值设定
+     --minMappingQuality
+
+    # warning，deeptools是在scaling data做低质量数据去除和去重，所以如果数据质量较差及重复数据很多，尽量事先使用samtools进行提前处理
+
+
+
+
+
+
