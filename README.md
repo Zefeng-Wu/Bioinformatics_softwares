@@ -124,3 +124,36 @@ reference-point mode则是给定一个bed file，以某个点为中心开始统�
        --skipZeros \
        -o matrix1_H3K4me3_l2r_TSS.gz \ # to be used with plotHeatmap and plotProfile
        --outFileSortedRegions regions1_H3K4me3_l2r_genes.bed
+
+#### 功能二：Tools for QC. 包括PCA作图，correlation作图等，都是运用multiBamSummary得到npz文件统计样本间的相关系数作图和PCA分析作图，没有需求故此处不做介绍。
+    plotCorrelation
+    plotPCA
+    plotFingerprint
+    bamPEFragmentSize
+    computeGCBias
+    plotCoverage
+
+#### 功能三：Heatmaps and summary plots:主要用来画热图（并包含聚类功能);上游数据是computeMatrix得到的gz file
+    plotHeatmap
+    plotProfile
+    plotEnrichment
+    plotHeatmap
+##### 1. plotHeatmap
+    plotHeatmap -m matrix_two_groups.gz \ #输入gz文件
+     -out ExampleHeatmap2.png \ 
+     --colorMap RdBu \ #指定颜色
+     --whatToShow 'heatmap and colorbar' \ #指定输出geatmap和colorbar
+     --zMin -3 --zMax 3 \ #指定colorbar的范围
+     --kmeans 4 #设定聚类个数
+
+##### 2.plotProfile:主要用来画密度图,上游数据是computeMatrix得到的gz file;注意：默认针对单个bw文件作图或者把多个bw文件画在一个图里面（perGroup参数），同样也可以使用kmean或hclust聚类
+      plotProfile -m matrix.mat.gz \
+      --perGroup \
+      --kmeans 2 \
+      -out ExampleProfile3.png
+   其他参数
+    -z 给bed文件一个名称
+    --samplesLabel  给bw文件一个名称
+    --startLabel
+    --endLabel
+
