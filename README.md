@@ -49,7 +49,7 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
       --output_dir star_fusion_outdir
 
 ## BAM 文件统计和可视化
-### Deeptools （三大功能：1. BAM & Bigwig格式文件处理；2. QC检测 3. 热图和metaplot）
+### 1. Deeptools （三大功能：1. BAM & Bigwig格式文件处理；2. QC检测 3. 热图和metaplot）
     # 处理器数目设定
      -p max/2
      
