@@ -63,8 +63,39 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
      --minMappingQuality
 
     # warning，deeptools是在scaling data做低质量数据去除和去重，所以如果数据质量较差及重复数据很多，尽量事先使用samtools进行提前处理
+#### 功能一：BAM & bigwig file processing
+    multiBamSummary
+    multiBigwigSummary
+    correctGCbias
+    bamCoverage
+    bamCompare
+    bigwigCompare
+    computeMatrix
+##### 1. multiBamSummary：可以用来处理bam文件在基因组上覆盖情况，默认输出npz文件，衔接plotCorrelation和plotPCA进行作图
+    # bin mode
+    multiBamSummary bins --bamfiles file1.bam file2.bam -out results.npz
+    
+    # BED-file mode
+    multiBamSummary BED-file --BED selection.bed --bamfiles file1.bam file2.bam -out results.npz
 
+    deepTools2.0/bin/multiBamSummary bins \
+      --bamfiles testFiles/*bam \ # using all BAM files in the folder
+      --minMappingQuality 30 \
+      --region 19 \ # limiting the binning of the genome to chromosome 19
+      --labels H3K27me3 H3K4me1 H3K4me3 HeK9me3 input \
+      -out readCounts.npz --outRawCounts readCounts.tab
 
+     head readCounts.tab
+     'chr'   'start' 'end'   'H3K27me3'      'H3K4me1'       'H3K4me3'       'HeK9me3'       'input'
+     19 10000   20000   0.0     0.0     0.0     0.0     0.0
+     19 20000   30000   0.0     0.0     0.0     0.0     0.0
+     19 30000   40000   0.0     0.0     0.0     0.0     0.0
+     19 40000   50000   0.0     0.0     0.0     0.0     0.0
+     19 50000   60000   0.0     0.0     0.0     0.0     0.0
+     19 60000   70000   1.0     1.0     0.0     0.0     1.0
+     19 70000   80000   0.0     1.0     7.0     0.0     1.0
+     19 80000   90000   15.0    0.0     0.0     6.0     4.0
+     19 90000   100000  73.0    7.0     4.0     16.0    5.0
 
 
 
