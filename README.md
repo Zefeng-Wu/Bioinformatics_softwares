@@ -13,7 +13,8 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     --fusion_annot_lib CTAT_HumanFusionLib.dat.gz \     # fusion 注释数据库（不是必须）
     --annot_filter_rule AnnotFilterRule.pm \
     --pfam_db PFAM.domtblout.dat.gz
-#### 2. 运行STAR-fusion. STAR-fusion支持两种模式，第一种是直接从fastq开始，第二种是自己手动进行STAR比对，然后在运行STAR-fusion。第一种模式的用法如下：
+#### 2. 运行STAR-fusion. STAR-fusion支持两种模式，第一种是直接从fastq开始，第二种是自己手动进行STAR比对，然后在运行STAR-fusion。
+#### 第一种模式的用法如下：
 ##### 双端
     STAR-Fusion \
     --genome_lib_dir CTAT_resource_lib \
@@ -25,5 +26,23 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     --genome_lib_dir CTAT_resource_lib \
     --left_fq reads_1.fq \
     --output_dir star_fusion_outdir
-
-
+#### 第二种模式
+#### 1. Star比对
+STAR --genomeDir ${star_index_dir} \                                                                                     
+  --readFilesIn ${left_fq_filename} ${right_fq_filename} \                                                                      
+  --twopassMode Basic \                                                                                                      
+  --outReadsUnmapped None \                                                                                                  
+  --chimSegmentMin 12 \                                                                                                    
+  --chimJunctionOverhangMin 12 \                                                                                           
+  --alignSJDBoverhangMin 10 \                                                                                              
+  --alignMatesGapMax 100000 \                                                                                             
+  --alignIntronMax 100000 \                                                                                                
+  --chimSegmentReadGapMax 3 \                                                                                    
+  --alignSJstitchMismatchNmax 5 -1 5 5 \
+  --runThreadN ${THREAD_COUNT} \                                                                                                           --outSAMstrandField intronMotif \
+  --chimOutJunctionFormat 1
+#### 2. Star-funsion
+STAR-Fusion \
+--genome_lib_dir CTAT_resource_lib \
+-J Chimeric.out.junction \
+--output_dir star_fusion_outdir
