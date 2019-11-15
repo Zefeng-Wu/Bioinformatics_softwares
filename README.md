@@ -28,15 +28,15 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     --output_dir star_fusion_outdir
 #### 第二种模式
 #### 1. Star比对
-    STAR --genomeDir ${star_index_dir} \                                                                                     
-      --readFilesIn ${left_fq_filename} ${right_fq_filename} \                                                                      
-      --twopassMode Basic \                                                                                                      
+    STAR --genomeDir ${star_index_dir} \   
+      --readFilesIn ${left_fq_filename} ${right_fq_filename} \ 
+      --twopassMode Basic \      
       --outReadsUnmapped None \                                                                                                  
       --chimSegmentMin 12 \                                                                                                    
       --chimJunctionOverhangMin 12 \                                                                                           
       --alignSJDBoverhangMin 10 \                                                                                              
-      --alignMatesGapMax 100000 \                                                                                             
-      --alignIntronMax 100000 \                                                                                                
+      --alignMatesGapMax 100000 \ 
+      --alignIntronMax 100000 \   
       --chimSegmentReadGapMax 3 \                                                                                    
       --alignSJstitchMismatchNmax 5 -1 5 5 \
       --runThreadN ${THREAD_COUNT} \                                                                                                           --outSAMstrandField intronMotif \
