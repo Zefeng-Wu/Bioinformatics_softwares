@@ -39,7 +39,8 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
       --alignIntronMax 100000 \   
       --chimSegmentReadGapMax 3 \                                                                                    
       --alignSJstitchMismatchNmax 5 -1 5 5 \
-      --runThreadN ${THREAD_COUNT} \                                                                                                           --outSAMstrandField intronMotif \
+      --runThreadN ${THREAD_COUNT} \ 
+      --outSAMstrandField intronMotif \
       --chimOutJunctionFormat 1
 #### 2. Star-funsion
     STAR-Fusion \
