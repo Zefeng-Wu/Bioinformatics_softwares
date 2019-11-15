@@ -105,6 +105,21 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
       --extendReads
 ##### 3.bamCompare：可以用来的处理treat组和control组的数据转换成bigwig文件，给出一个binsize内结合强度的比值（默认log2处理）。
     bamCompare -b1 treatment.bam -b2 control.bam -o log2ratio.bw --normalizeTo1x 2451960000
-##### 4.computeMatrix：该功能可以计算每个基因区域的结合得分，生成中间文件用以给plotHeatmap和plotProfiles作图。
+##### 4.computeMatrix：该功能可以计算每个基因区域的结合得分，生成中间文件用以给plotHeatmap和plotProfiles作图。computeMatrix有两种模式，scale-regions mode和reference-point mode
 
-
+    computeMatrix scale-regions -p 10 \
+      -R gene19.bed geneX.bed \
+      -S test1.bw test2.bw \
+      -b 3000 -a 3000 \
+      --regionBodyLength 5000 \   
+      --skipZeros \
+      -o heatmap.gz 
+reference-point mode则是给定一个bed file，以某个点为中心开始统计信号（TSS/TES/center）。但实际上我在尝试的时候regionBdoyLength参数也还是可以用的，所以估计和scale-regions区别也不是太大，主要是作图的一点区别。
+    computeMatrix reference-point \ # choose the mode
+       --referencePoint TSS \ # alternatives: TES, center
+       -b 3000 -a 10000 \ # define the region you are interested in
+       -R testFiles/genes.bed \
+       -S testFiles/log2ratio_H3K4Me3_chr19.bw  \
+       --skipZeros \
+       -o matrix1_H3K4me3_l2r_TSS.gz \ # to be used with plotHeatmap and plotProfile
+       --outFileSortedRegions regions1_H3K4me3_l2r_genes.bed
