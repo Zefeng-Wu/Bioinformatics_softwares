@@ -97,6 +97,11 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
      19 80000   90000   15.0    0.0     0.0     6.0     4.0
      19 90000   100000  73.0    7.0     4.0     16.0    5.0
 
-
+##### 2.bamCoverage:可以用来将bam file转换成bigwig file，同时可以设定binSize参数从而的获取不同的分辨率，在比较非一批数据的时候，还可以设定数据normalizeTo1X到某个值（一般是该物种基因长度）从而方便进行比较。
+    bamCoverage --bam a.bam -o a.SeqDepthNorm.bw \
+      --binSize 10
+      --normalizeTo1x 2150570000
+      --ignoreForNormalization chrX
+      --extendReads
 
 
