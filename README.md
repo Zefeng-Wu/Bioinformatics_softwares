@@ -159,5 +159,5 @@ reference-point mode则是给定一个bed file，以某个点为中心开始统�
     
 ## 三代测序数据
 ### reads过滤
-    NanoFilt -q 10 -l 500 --headcrop 50
-    filtlong --min_length 1000 --keep_percent 90 --target_bases 500000000 input.fastq.gz | gzip > output.fastq.gz 
+    NanoFilt -q 9 -l 1000 > filter.fq (有问题) 
+    filtlong --min_length 1000 --min_mean_q 9 SRR6924617.fastq >SRR6924617_filt_long_filter.fastq  #（正确）
