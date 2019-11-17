@@ -156,4 +156,8 @@ reference-point mode则是给定一个bed file，以某个点为中心开始统�
     --samplesLabel  给bw文件一个名称
     --startLabel
     --endLabel
-
+    
+## 三代测序数据
+### reads过滤
+    NanoFilt -q 10 -l 500 --headcrop 50
+    filtlong --min_length 1000 --keep_percent 90 --target_bases 500000000 input.fastq.gz | gzip > output.fastq.gz 
