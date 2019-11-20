@@ -161,3 +161,7 @@ reference-point mode则是给定一个bed file，以某个点为中心开始统�
 ### reads过滤
     NanoFilt -q 9 -l 1000 > filter.fq (有问题) 
     filtlong --min_length 1000 --min_mean_q 9 SRR6924617.fastq >SRR6924617_filt_long_filter.fastq  #（正确）
+
+
+## ATAC
+ATACseqQC Guide
