@@ -165,3 +165,7 @@ reference-point mode则是给定一个bed file，以某个点为中心开始统�
 
 ## ATAC
 ATACseqQC Guide
+
+## eQTL
+    R MatrixEQTL
+    Exploring regulation in tissues with eQTL networks
