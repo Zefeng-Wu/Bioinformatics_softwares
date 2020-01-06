@@ -176,12 +176,12 @@ ATACseqQC Guide
     chmod 777 Miniconda3-latest-Linux-x86_64.sh #给执行权限
     bash Miniconda3-latest-Linux-x86_64.sh #运行
     rm -rf ~/miniconda #卸载minicoda
-### 2.启动/推出
+### 2.启动/退出
     cd miniconda3
     chmod 777 activate 
     . ./activate #这里的第一个点跟source是一样的效果
     conda list
-    . ./deactivate #推出环境
+    . ./deactivate #退出环境
 ### 3.添加channel
     conda config --add channels bioconda
     conda config --add channels conda-forge
