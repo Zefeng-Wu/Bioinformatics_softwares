@@ -99,10 +99,11 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
 
 ##### 2.bamCoverage:可以用来将bam file转换成bigwig file，同时可以设定binSize参数从而的获取不同的分辨率，在比较非一批数据的时候，还可以设定数据normalizeTo1X到某个值（一般是该物种基因组大小）从而方便进行比较。
     bamCoverage --bam a.bam -o a.SeqDepthNorm.bw \
-      --binSize 10
-      --normalizeTo1x 2150570000
-      --ignoreForNormalization chrX
-      --extendReads
+    --binSize 10
+    --normalizeUsing RPGC
+    --effectiveGenomeSize 2150570000
+    --ignoreForNormalization chrX
+    --extendReads
 ##### 3.bamCompare：可以用来的处理treat组和control组的数据转换成bigwig文件，给出一个binsize内结合强度的比值（默认log2处理）。
     bamCompare -b1 treatment.bam -b2 control.bam -o log2ratio.bw --normalizeTo1x 2451960000
 ##### 4.computeMatrix：该功能可以计算每个基因区域的结合得分，生成中间文件用以给plotHeatmap和plotProfiles作图。computeMatrix有两种模式，scale-regions mode和reference-point mode
