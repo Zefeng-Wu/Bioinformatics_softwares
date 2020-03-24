@@ -203,6 +203,6 @@ ATACseqQC Guide
     samtools bedcov   test.sorted.bam  # 以bed文件为单位统计测序覆盖度（非reads数）
     samtools depth    test.sorted.bam  # 统计每个碱基的测序深度
 ## bedtools
-    bedtools merge -i test.sorted.bam  # 合并overlappedd的reads,形成bed文件    
-    
+    bedtools merge -i test.sorted.bam          # 合并overlappedd的reads,形成bed文件   
+    bedtools coverage -a test.bed -b test.bam  #每个bed区间的reads数和总碱基数 
 
