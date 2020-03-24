@@ -4,6 +4,7 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
 
 ## 转录组进化
     treeExp：http://hupi.fudan.edu.cn/people/guxun
+    
 ## 基因融合 
 ### 1. star-fusion （在速度和准确率上均比较高，基于star比对结果）
 #### 1. 构建reference lib. 人类和鼠的可以从以下网址直接下载：https://data.broadinstitute.org/Trinity/CTAT_RESOURCE_LIB/; 其中plug-n是已经建立好的reference lib, 而source里面包含了所需的原始文件。从原始文件构建reference lib的命令如下；默认会在当前目录生成一个名为    ctat_genome_lib_build_dir的目录
@@ -197,5 +198,11 @@ ATACseqQC Guide
     conda env list #查当前环境
     conda create -n python2 python=2 #-n: 设置新的环境的名字, python=2 指定新环境的python的版本
     
+## samtools
+    samtools coverage test.sorted.bam  # 以染色体为单位统计覆盖度、测序深度、碱基数等
+    samtools bedcov   test.sorted.bam  # 以bed文件为单位统计测序深度
+    samtools depth    test.sorted.bam  # 统计每个碱基的测序深度
+## bedtools
+    bedtools merge -i test.sorted.bam  # 合并overlappedd的reads,形成bed文件    
     
 
