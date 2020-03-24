@@ -200,7 +200,7 @@ ATACseqQC Guide
     
 ## samtools
     samtools coverage test.sorted.bam  # 以染色体为单位统计覆盖度、测序深度、碱基数等
-    samtools bedcov   test.sorted.bam  # 以bed文件为单位统计测序深度
+    samtools bedcov   test.sorted.bam  # 以bed文件为单位统计测序覆盖度（非reads数）
     samtools depth    test.sorted.bam  # 统计每个碱基的测序深度
 ## bedtools
     bedtools merge -i test.sorted.bam  # 合并overlappedd的reads,形成bed文件    
