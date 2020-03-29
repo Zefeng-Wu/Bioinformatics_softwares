@@ -199,6 +199,7 @@ ATACseqQC Guide
     conda create -n python2 python=2 #-n: 设置新的环境的名字, python=2 指定新环境的python的版本
     
 ## samtools
+    samtools view  test.sorted.bam chr1:10000-20000 #提取特定区间的比对信息
     samtools coverage test.sorted.bam  # 以染色体为单位统计覆盖度、测序深度、碱基数等
     samtools bedcov   test.sorted.bam  # 以bed文件为单位统计测序覆盖度（非reads数）
     samtools depth    test.sorted.bam  # 统计每个碱基的测序深度
