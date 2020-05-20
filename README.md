@@ -206,4 +206,6 @@ ATACseqQC Guide
 ## bedtools
     bedtools merge -i test.sorted.bam          # 合并overlappedd的reads,形成bed文件   
     bedtools coverage -a test.bed -b test.bam  #每个bed区间的reads数和总碱基数 
-
+    
+## 直系同源基因的鉴定
+    https://orthovenn2.bioinfotoolkits.net/home
