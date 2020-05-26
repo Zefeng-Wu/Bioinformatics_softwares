@@ -209,3 +209,25 @@ ATACseqQC Guide
     
 ## 直系同源基因的鉴定
     https://orthovenn2.bioinfotoolkits.net/home
+
+
+## 本地git新项目
+    mkdir cv && cd
+    git init 
+    git config --global user.name "Zefeng-Wu"
+    git config --global user.email "835102330@qq.com"
+    
+    ### download or self-make
+    wget http://labfile.oss.aliyuncs.com/courses/624/cv-template.zip
+    unzip cv-template
+    mv cv-template/* .
+    unzip cv-template
+    mv cv-template/* 
+    rm -rf cv-template* __MACOSX*（MACOSX前面是两根下划线
+    
+    ## make a repository via net browser, member the git address
+    git add .
+    git commit -m 'commit my cv'
+    git remote add origin https://github.com/Zefeng-Wu/cv.git
+    git push -u origin master
+    
