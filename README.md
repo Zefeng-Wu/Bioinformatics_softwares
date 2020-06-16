@@ -223,7 +223,7 @@ ATACseqQC Guide
     mv cv-template/* .
     unzip cv-template
     mv cv-template/* 
-    rm -rf cv-template* __MACOSX*（MACOSX前面是两根下划线
+    rm -rf cv-template* __MACOSX*（MACOSX前面是两根下划线）
     
     ## make a repository via net browser, member the git address
     git add .
@@ -231,3 +231,9 @@ ATACseqQC Guide
     git remote add origin https://github.com/Zefeng-Wu/cv.git
     git push -u origin master
     
+## Cytoscape
+    导入网络文件：file->import->network->file(net.txt)
+    导入节点属性：file->import->table->file(node.txt)(此处为table而非network)
+    
+
+
