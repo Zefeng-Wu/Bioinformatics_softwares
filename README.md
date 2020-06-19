@@ -208,10 +208,27 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     conda create -n python2 python=2 #-n: 设置新的环境的名字, python=2 指定新环境的python的版本
     
 ## samtools
+    
     samtools view  test.sorted.bam chr1:10000-20000 #提取特定区间的比对信息
+    samtools view -c SAMPLE.bam ## get the total number of reads of a BAM file (may include unmapped and duplicated multi-aligned reads)
+    samtools view -c -F 260 SAMPLE.bam #    ### counting only mapped (primary aligned) reads
+    
+    options
+        -c  count reads and print the total number
+        -f bitcode  output reads that fulfill the checked 'bitcode' criteria, see SAM bitcode fields
+        -F bitcode  exclude reads that match one or more checked 'bitcode' criteria, see SAM bitcode fields
+        -F 260  output primary aligned mapped reads
+                       read unmapped & not primary alignment criteria 3 & 9 are selected for exclusion
+                       bit 3 + bit 9 = 4 + 256 = 260
+                       
     samtools coverage test.sorted.bam  # 以染色体为单位统计覆盖度、测序深度、碱基数等
     samtools bedcov   test.sorted.bam  # 以bed文件为单位统计测序覆盖度（非reads数）
     samtools depth    test.sorted.bam  # 统计每个碱基的测序深度
+
+  
+ 
+
+    
 ## bedtools
     bedtools merge -i test.sorted.bam          # 合并overlappedd的reads,形成bed文件   
     bedtools coverage -a test.bed -b test.bam  #每个bed区间的reads数和总碱基数 
@@ -244,18 +261,5 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     导入网络文件：file->import->network->file(net.txt)
     导入节点属性：file->import->table->file(node.txt)(此处为table而非network)
     
-## Samtools
-    ### get the total number of reads of a BAM file (may include unmapped and duplicated multi-aligned reads)
-    samtools view -c SAMPLE.bam
 
-    ### counting only mapped (primary aligned) reads
-    samtools view -c -F 260 SAMPLE.bam
-
-    options
-        -c  count reads and print the total number
-        -f bitcode  output reads that fulfill the checked 'bitcode' criteria, see SAM bitcode fields
-        -F bitcode  exclude reads that match one or more checked 'bitcode' criteria, see SAM bitcode fields
-        -F 260  output primary aligned mapped reads
-                       read unmapped & not primary alignment criteria 3 & 9 are selected for exclusion
-                       bit 3 + bit 9 = 4 + 256 = 260
 
