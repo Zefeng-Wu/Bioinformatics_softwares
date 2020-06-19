@@ -50,7 +50,7 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
       --output_dir star_fusion_outdir
 
 ## BAM 文件统计和可视化
-### 1. Deeptools （三大功能：1. BAM & Bigwig格式文件处理；2. QC检测 3. 热图和metaplot）
+    1. Deeptools （三大功能：1. BAM & Bigwig格式文件处理；2. QC检测 3. 热图和metaplot）
     # 处理器数目设定
      -p max/2
      
@@ -64,19 +64,20 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
      --minMappingQuality
 
     # warning，deeptools是在scaling data做低质量数据去除和去重，所以如果数据质量较差及重复数据很多，尽量事先使用samtools进行提前处理
-#### 功能一：BAM & bigwig file processing
-    multiBamSummary
-    multiBigwigSummary
-    correctGCbias
-    bamCoverage
-    bamCompare
-    bigwigCompare
-    computeMatrix
-##### 1. multiBamSummary：可以用来处理bam文件在基因组上覆盖情况，默认输出npz文件，衔接plotCorrelation和plotPCA进行作图
-    # bin mode
-    multiBamSummary bins --bamfiles file1.bam file2.bam -out results.npz
     
-    # BED-file mode
+    功能一：BAM & bigwig file processing
+        multiBamSummary
+        multiBigwigSummary
+        correctGCbias
+        bamCoverage
+        bamCompare
+        bigwigCompare
+        computeMatrix
+    1. multiBamSummary：可以用来处理bam文件在基因组上覆盖情况，默认输出npz文件，衔接plotCorrelation和plotPCA进行作图
+    bin mode
+        multiBamSummary bins --bamfiles file1.bam file2.bam -out results.npz
+    
+    BED-file mode
     multiBamSummary BED-file --BED selection.bed --bamfiles file1.bam file2.bam -out results.npz
 
     deepTools2.0/bin/multiBamSummary bins \
@@ -98,16 +99,18 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
      19 80000   90000   15.0    0.0     0.0     6.0     4.0
      19 90000   100000  73.0    7.0     4.0     16.0    5.0
 
-##### 2.bamCoverage:可以用来将bam file转换成bigwig file，同时可以设定binSize参数从而的获取不同的分辨率，在比较非一批数据的时候，还可以设定数据normalizeTo1X到某个值（一般是该物种基因组大小）从而方便进行比较。
+    2.bamCoverage:可以用来将bam file转换成bigwig file，同时可以设定binSize参数从而的获取不同的分辨率，在比较非一批数据的时候，还可以设定数据normalizeTo1X到某个值（一般是该物种基因组大小）从而方便进行比较。
     bamCoverage --bam a.bam -o a.SeqDepthNorm.bw \
     --binSize 10
     --normalizeUsing RPGC
     --effectiveGenomeSize 2150570000
     --ignoreForNormalization chrX
     --extendReads
-##### 3.bamCompare：可以用来的处理treat组和control组的数据转换成bigwig文件，给出一个binsize内结合强度的比值（默认log2处理）。
+    
+    3.bamCompare：可以用来的处理treat组和control组的数据转换成bigwig文件，给出一个binsize内结合强度的比值（默认log2处理）。
     bamCompare -b1 treatment.bam -b2 control.bam -o log2ratio.bw --normalizeTo1x 2451960000
-##### 4.computeMatrix：该功能可以计算每个基因区域的结合得分，生成中间文件用以给plotHeatmap和plotProfiles作图。computeMatrix有两种模式，scale-regions mode和reference-point mode
+    
+    4.computeMatrix：该功能可以计算每个基因区域的结合得分，生成中间文件用以给plotHeatmap和plotProfiles作图。computeMatrix有两种模式，scale-regions mode和reference-point mode
 
     computeMatrix scale-regions -p 10 \
       -R gene19.bed geneX.bed \
@@ -116,7 +119,8 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
       --regionBodyLength 5000 \   
       --skipZeros \
       -o heatmap.gz 
-reference-point mode则是给定一个bed file，以某个点为中心开始统计信号（TSS/TES/center）。但实际上我在尝试的时候regionBdoyLength参数也还是可以用的，所以估计和scale-regions区别也不是太大，主要是作图的一点区别。
+    
+    reference-point mode则是给定一个bed file，以某个点为中心开始统计信号（TSS/TES/center）。但实际上我在尝试的时候regionBdoyLength参数也还是可以用的，所以估计和scale-regions区别也不是太大，主要是作图的一点区别。
 
     computeMatrix reference-point \ # choose the mode
        --referencePoint TSS \ # alternatives: TES, center
@@ -127,20 +131,21 @@ reference-point mode则是给定一个bed file，以某个点为中心开始统�
        -o matrix1_H3K4me3_l2r_TSS.gz \ # to be used with plotHeatmap and plotProfile
        --outFileSortedRegions regions1_H3K4me3_l2r_genes.bed
 
-#### 功能二：Tools for QC. 包括PCA作图，correlation作图等，都是运用multiBamSummary得到npz文件统计样本间的相关系数作图和PCA分析作图，没有需求故此处不做介绍。
-    plotCorrelation
-    plotPCA
-    plotFingerprint
-    bamPEFragmentSize
-    computeGCBias
-    plotCoverage
+    功能二：Tools for QC. 包括PCA作图，correlation作图等，都是运用multiBamSummary得到npz文件统计样本间的相关系数作图和PCA分析作图，没有需求故此处不做介绍。
+        plotCorrelation
+        plotPCA
+        plotFingerprint
+        bamPEFragmentSize
+        computeGCBias
+        plotCoverage
 
-#### 功能三：Heatmaps and summary plots:主要用来画热图（并包含聚类功能);上游数据是computeMatrix得到的gz file
-    plotHeatmap
-    plotProfile
-    plotEnrichment
-    plotHeatmap
-##### 1. plotHeatmap
+    功能三：Heatmaps and summary plots:主要用来画热图（并包含聚类功能);上游数据是computeMatrix得到的gz file
+        plotHeatmap
+        plotProfile
+        plotEnrichment
+        plotHeatmap
+    
+    1. plotHeatmap
     plotHeatmap -m matrix_two_groups.gz \ #输入gz文件
      -out ExampleHeatmap2.png \ 
      --colorMap RdBu \ #指定颜色
@@ -148,25 +153,25 @@ reference-point mode则是给定一个bed file，以某个点为中心开始统�
      --zMin -3 --zMax 3 \ #指定colorbar的范围
      --kmeans 4 #设定聚类个数
 
-##### 2.plotProfile:主要用来画密度图,上游数据是computeMatrix得到的gz file;注意：默认针对单个bw文件作图或者把多个bw文件画在一个图里面（perGroup参数），同样也可以使用kmean或hclust聚类
+    2.plotProfile:主要用来画密度图,上游数据是computeMatrix得到的gz file;注意：默认针对单个bw文件作图或者把多个bw文件画在一个图里面（perGroup参数），同样也可以使用kmean或hclust聚类
       plotProfile -m matrix.mat.gz \
       --perGroup \
       --kmeans 2 \
       -out ExampleProfile3.png
-   其他参数
-    -z 给bed文件一个名称
-    --samplesLabel  给bw文件一个名称
-    --startLabel
-    --endLabel
+    
+    其他参数
+        -z 给bed文件一个名称
+        --samplesLabel  给bw文件一个名称
+        --startLabel
+        --endLabel
     
 ## 三代测序数据
-### reads过滤
+    1reads过滤
     NanoFilt -q 9 -l 1000 > filter.fq (有问题) 
     filtlong --min_length 1000 --min_mean_q 9 SRR6924617.fastq >SRR6924617_filt_long_filter.fastq  #（正确）
 
-
 ## ATAC
-ATACseqQC Guide
+    ATACseqQC Guide
 
 ## <font color="#006600">eQTL</font><br/>
     R MatrixEQTL
