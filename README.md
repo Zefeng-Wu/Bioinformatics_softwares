@@ -235,5 +235,18 @@ ATACseqQC Guide
     导入网络文件：file->import->network->file(net.txt)
     导入节点属性：file->import->table->file(node.txt)(此处为table而非network)
     
+## Samtools
+    ### get the total number of reads of a BAM file (may include unmapped and duplicated multi-aligned reads)
+    samtools view -c SAMPLE.bam
 
+    ### counting only mapped (primary aligned) reads
+    samtools view -c -F 260 SAMPLE.bam
+
+    options
+        -c  count reads and print the total number
+        -f bitcode  output reads that fulfill the checked 'bitcode' criteria, see SAM bitcode fields
+        -F bitcode  exclude reads that match one or more checked 'bitcode' criteria, see SAM bitcode fields
+        -F 260  output primary aligned mapped reads
+                       read unmapped & not primary alignment criteria 3 & 9 are selected for exclusion
+                       bit 3 + bit 9 = 4 + 256 = 260
 
