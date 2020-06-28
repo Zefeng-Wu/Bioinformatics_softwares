@@ -262,4 +262,13 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     导入节点属性：file->import->table->file(node.txt)(此处为table而非network)
     
 
+## Othofinder
 
+    fasta_Modi_Uniq.R # modify the fasta header and isoforms
+    for m in $(ls *.fa); do orthomclAdjustFasta $(basename ${m%.fa}) $m 1 ; done  # add species  in the header
+    mv *.fasta > ../3adjust_fasta/
+
+    conda create -n orthofinder
+    conda activate orthofinder
+    conda install -c bioconda orthofinder
+    nohup orthofinder -f 3adjust_fasta/ -t 40 -M msa & 
