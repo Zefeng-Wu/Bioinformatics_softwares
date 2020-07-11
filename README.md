@@ -272,3 +272,7 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     conda activate orthofinder
     conda install -c bioconda orthofinder
     nohup orthofinder -f 3adjust_fasta/ -t 40 -M msa & 
+
+## Gene duplication
+    DupPipe
+    DupGen_finder
