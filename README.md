@@ -283,3 +283,6 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     wget https://www2.math.su.se/PATHd8/PATHd8.zip
     unzip PATHd8.zip
     cc PATHd8.c -O3 -lm -o PATHd8
+    
+### 2.0 PAML (mcmctree)
+### 3.0 r8s
