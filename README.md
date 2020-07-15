@@ -272,6 +272,11 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     conda activate orthofinder
     conda install -c bioconda orthofinder
     nohup orthofinder -f 3adjust_fasta/ -t 40 -M msa & 
+### 下游分析：Orthofinder构建的有根物种树是根据基因树形成的，最好使用单拷贝基因重新比对，，gblcck,trima等修剪，合并alignment形成supermatrix，再用raxml建树
+    python cafetutorial_prep_r8s.py -i ../peps/3adjust_fasta/Results_Jun28/Orthologues_Jun29/SpeciesTree_rooted.txt -o r8s_ctl_file.txt -s 495300  -p        'Medicago_truncatula,Arabidopsis_thaliana' -c '108'
+    /mnt/local_disk1/wzf/software/r8s1.81/src/r8s -b -f r8s_ctl_file.txt > r8s_tmp.txt
+    tail -n 1 r8s_tmp.txt | cut -c 16- > twelve_spp_r8s_ultrametric.txt
+    ggtree.R
 
 ## Gene duplication
     DupPipe
