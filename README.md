@@ -263,6 +263,7 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     
 
 ## Othofinder
+    流程:蛋白序列---(DendroBLAST)---> 无根基因树 ---(STAG algorithm)--> 无根物种树  ---STRIDE algorithm---> 有根物种树 ----> 有根基因树 ---(species-overlap&duplication-loss-coalescent---> orthogroup 推断 
 
     fasta_Modi_Uniq.R # modify the fasta header and isoforms
     for m in $(ls *.fa); do orthomclAdjustFasta $(basename ${m%.fa}) $m 1 ; done  # add species  in the header
