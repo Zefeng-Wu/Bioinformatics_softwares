@@ -284,6 +284,7 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     DupGen_finder
 
 ## 物种树推断
+    java -jar /lustre/project/og04/shichunwei/biosoft/jmodeltest-2.1.7/jModelTest.jar -d  jmodel.fasta -s 11 -i -g 4 -f -AIC -AICc -DT -BIC -a -tr 8 > jmodel.out
     raxmlHPC-PTHREADS-SSE3 -s ../scripts/test.phy -n tree -m PROTGAMMAJTT -T 30 -N 1000 -p 20200716 -f a -x 20170716 # 不要直接使用-PTHREADS-SS，没有多线程
 ### 1.0 PATHd8
     make PATHd8 & cd PATHd8
