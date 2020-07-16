@@ -284,6 +284,7 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     DupGen_finder
 
 ## 物种树推断
+    raxmlHPC -s ../scripts/test.phy -n tree -m PROTGAMMAJTT -T 30 -N 1000 -p 20200716 -f a -x 20170716
 ### 1.0 PATHd8
     make PATHd8 & cd PATHd8
     wget https://www2.math.su.se/PATHd8/PATHd8.zip
