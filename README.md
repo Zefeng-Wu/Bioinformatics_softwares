@@ -301,5 +301,5 @@ neat-genreads
 ## ka，ks计算
 ### KaKs_calculator2.0
     muscle -in GMP.cds.fa -out GMP.cds.msf -msf #muscel cds序列比对
-    ./AXTConvertor ~/MyResearch/SJ/3gene_family/GMP.cds.msf GMP.cds.axt # 格式转换
-    KaKs_Calculator  -i GMP.cds.axt -o GMP.cds.kaks -m YN # 会报错，序列长短不一样
+    AXTConvertor GMP.cds.msf GMP.cds.axt # 格式转换
+    KaKs_Calculator -i GMP.cds.axt -o GMP.cds.kaks -m YN # 会报错，序列长短不一样
