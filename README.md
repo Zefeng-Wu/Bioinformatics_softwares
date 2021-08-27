@@ -305,9 +305,16 @@ neat-genreads
 
 ## ka，ks计算
 ### KaKs_calculator2.0
+1. 直接用cds比对结果计算kaks
     muscle -in GMP.cds.fa -out GMP.cds.msf -msf #muscel cds序列比对
     AXTConvertor GMP.cds.msf GMP.cds.axt # 格式转换
     KaKs_Calculator -i GMP.cds.axt -o GMP.cds.kaks -m YN # 会报错，序列长短不一样
+2 先用蛋白序列比对，然后转为cds比对
+    muscle -in GMP.pep.fa -out GMP.pep.align.fa
+    pal2nal.pl  GMP.pep.align.fa GMP.cds.fa -output clustal -nogap > GMP.cds.clw
+    AXTConvertor GMP.cds.clw GMP.cds.axt
+    KaKs_Calculator -i GMP.cds.axt -o GMP.cds.kaks  # 不报错
+    
 ## 共线性分析 MCscanX
 ### 基因组内部
 1.准备gff文件，和自身blast结果两个文件（Hip.gff和Hip.blast文件),放到同一目录下
