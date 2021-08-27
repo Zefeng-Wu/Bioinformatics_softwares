@@ -178,32 +178,37 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     Exploring regulation in tissues with eQTL networks
     
 ## Python 环境之anaconda. (尤其适用于在服务器上没有sduo权限的时候安装python包)
-    1.下载并装miniconda
+1.下载并装miniconda
+    
     wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
     chmod 777 Miniconda3-latest-Linux-x86_64.sh #给执行权限
     bash Miniconda3-latest-Linux-x86_64.sh #运行
     rm -rf ~/miniconda #卸载minicoda
     
-    2.启动/退出
+2.启动/退出
+    
     cd miniconda3
     chmod 777 activate 
     . ./activate #这里的第一个点跟source是一样的效果
     conda list
     . ./deactivate #退出环境
     
-    3.添加channel
+3.添加channel
+
     conda config --add channels bioconda
     conda config --add channels conda-forge
     conda config --get channels
     
-    4.安装/卸载软件
+4.安装/卸载软件
+    
     conda install gatk
     conda install gatk=3.7 #指定版本
     conda search gatk #搜索软件
     conda remove gatk #卸载软件
     conda update 软件名 # 更新软件
     
-    5.创建conda环境
+5.创建conda环境
+    
     conda env list #查当前环境
     conda create -n python2 python=2 #-n: 设置新的环境的名字, python=2 指定新环境的python的版本
     
