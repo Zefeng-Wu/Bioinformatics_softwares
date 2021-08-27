@@ -303,12 +303,12 @@ neat-genreads
     muscle -in GMP.cds.fa -out GMP.cds.msf -msf #muscel cds序列比对
     AXTConvertor GMP.cds.msf GMP.cds.axt # 格式转换
     KaKs_Calculator -i GMP.cds.axt -o GMP.cds.kaks -m YN # 会报错，序列长短不一样
-##>共线性分析 MCscanX
+## 共线性分析 MCscanX
 ### 基因组内部
-    1. 准备gff文件，和自身blast结果两个文件（Hip.gff和Hip.blast文件),放到同一目录下 
+  1.准备gff文件，和自身blast结果两个文件（Hip.gff和Hip.blast文件),放到同一目录下 
     MCScanX Hip #产生三个文件，.collinearity、.tandem以及html文件夹
     注：得到的collinearity文件和Dupgene_finder结果一致。
 
-    2.准备cds文件，用MCscanX自带的perl脚本计算kaks，依赖clustalW的比对
+  2.准备cds文件，用MCscanX自带的perl脚本计算kaks，依赖clustalW的比对
     perl ./add_ka_and_ks_to_collinearity.pl -i Hip.collinearity -d Hippophae_rhamnoides.cds -o Hip.kaks #产生1个文件，即在原来collinearity文件的基础上加上了ka和ks列，注意里面有-2的情况，另外他的结果不是tab分割需要贴到excel里，重新做图
     注: add_ka_and_ks_to_collinearity.pl 使用的是perl模块计算kaks，貌似用的是Nei-Gojobori algorithm 算法。而Dupgene_finder使用的方法是GMYN模型。因此二者计算出来的kaks值不一样。
