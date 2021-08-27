@@ -303,7 +303,7 @@ neat-genreads
     muscle -in GMP.cds.fa -out GMP.cds.msf -msf #muscel cds序列比对
     AXTConvertor GMP.cds.msf GMP.cds.axt # 格式转换
     KaKs_Calculator -i GMP.cds.axt -o GMP.cds.kaks -m YN # 会报错，序列长短不一样
-## 共线性分析 MCscanX
+##>共线性分析 MCscanX
 ### 基因组内部
     1. 准备gff文件，和自身blast结果两个文件（Hip.gff和Hip.blast文件),放到同一目录下 
     MCScanX Hip #产生三个文件，.collinearity、.tandem以及html文件夹
