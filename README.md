@@ -240,7 +240,19 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     
 ## 直系同源基因的鉴定
     https://orthovenn2.bioinfotoolkits.net/home
+    Broccoli: Combining Phylogenetic and Network Analyses for Orthology Assignment
 
+### Othofinder
+    流程:蛋白序列---(DendroBLAST)---> 无根基因树 ---(STAG algorithm)--> 无根物种树  ---STRIDE algorithm---> 有根物种树 ----> 有根基因树 ---(species-overlap&duplication-loss-coalescent---> orthogroup 推断 
+
+    fasta_Modi_Uniq.R # modify the fasta header and isoforms
+    for m in $(ls *.fa); do orthomclAdjustFasta $(basename ${m%.fa}) $m 1 ; done  # add species  in the header
+    mv *.fasta > ../3adjust_fasta/
+
+    conda create -n orthofinder
+    conda activate orthofinder
+    conda install -c bioconda orthofinder
+    nohup orthofinder -f 3adjust_fasta/ -t 40 -M msa & 
 
 ## 本地git新项目
     mkdir cv && cd
@@ -267,17 +279,7 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     导入节点属性：file->import->table->file(node.txt)(此处为table而非network)
     
 
-## Othofinder
-    流程:蛋白序列---(DendroBLAST)---> 无根基因树 ---(STAG algorithm)--> 无根物种树  ---STRIDE algorithm---> 有根物种树 ----> 有根基因树 ---(species-overlap&duplication-loss-coalescent---> orthogroup 推断 
 
-    fasta_Modi_Uniq.R # modify the fasta header and isoforms
-    for m in $(ls *.fa); do orthomclAdjustFasta $(basename ${m%.fa}) $m 1 ; done  # add species  in the header
-    mv *.fasta > ../3adjust_fasta/
-
-    conda create -n orthofinder
-    conda activate orthofinder
-    conda install -c bioconda orthofinder
-    nohup orthofinder -f 3adjust_fasta/ -t 40 -M msa & 
 ### 下游分析：Orthofinder构建的有根物种树是根据基因树形成的，最好使用单拷贝基因重新比对，，gblock,triml等修剪，合并alignment形成supermatrix，再用raxml建树
     python cafetutorial_prep_r8s.py -i ../peps/3adjust_fasta/Results_Jun28/Orthologues_Jun29/SpeciesTree_rooted.txt -o r8s_ctl_file.txt -s 495300  -p        'Medicago_truncatula,Arabidopsis_thaliana' -c '108'
     /mnt/local_disk1/wzf/software/r8s1.81/src/r8s -b -f r8s_ctl_file.txt > r8s_tmp.txt
