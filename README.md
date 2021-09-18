@@ -337,9 +337,20 @@ neat-genreads
 ##  群体基因组学
 ### 1. 多态性计算
     VCFtools: diversity (π) and Tajima’s D in regions of interest were estimated using VCFtools. (Comparative genomics sheds light on the convergent evolution of miniaturized wasps )
+
+###  进化、选择压力分析
+    HyPhy
+    PAML
+    ete3
+ 
+### 趋同进化
+    https://github.com/CarineRey/pcoc
     
 ##  功能富集
     clusterprofiler
     gostats
     goatools
     gprofile2
+
+
+    
