@@ -331,3 +331,13 @@ neat-genreads
     perl ./add_ka_and_ks_to_collinearity.pl -i Hip.collinearity -d Hippophae_rhamnoides.cds -o Hip.kaks #产生1个文件，即在原来collinearity文件的基础上加上了ka和ks列，注意里面有-2的情况，另外他的结果不是tab分割需要贴到excel里，重新做图
     
 注: add_ka_and_ks_to_collinearity.pl 使用的是perl模块计算kaks，貌似用的是Nei-Gojobori algorithm 算法。而Dupgene_finder使用的方法是GMYN模型。因此二者计算出来的kaks值不一样。
+
+##  群体基因组学
+###1. 多态性计算
+    VCFtools: diversity (π) and Tajima’s D in regions of interest were estimated using VCFtools. (Comparative genomics sheds light on the convergent evolution of miniaturized wasps )
+    
+##  功能富集
+    clusterprofiler
+    gostats
+    goatools
+    gprofile2
