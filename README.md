@@ -351,26 +351,37 @@ neat-genreads
         -> input 6 character model designation (e.g:010010 defines HKY85):012345
         -> 1 [Please choose an option (or press q to cancel selection):1]
         结果: R代表得到的w值
+    
     2.  检测 alignment-wide episodic diversification.（片段性多样化选择): 有两种方法：
         2.1 Run BUSTED to test for selection across the entire tree.
         Hyphy
         -> (1) Selection Analyses
         -> (5) [BUSTED] Test for episodic gene-wide selection using BUSTED (Branch-site Unrestricted Statistical Test of Episodic Diversification).
         -> 输入文件：/home/wuzefeng/Documents/脚本代码/data/hyphy_files/HIV.nex
-        
         结果：5%左右的位点经历了正选择
+        
         2.2 Run BUSTED to test for selection on specific a priori selection of foreground branches.
         -> 在http://veg.github.io/phylotree.js/ 选择前景分支
         -> -> (1) Selection Analyses
         -> (5) [BUSTED] Test for episodic gene-wide selection using BUSTED (Branch-site Unrestricted Statistical Test of Episodic Diversification).
+        结果：A proportion of sites (∼0.078) is evolving with ω>1 on the specified set of foreground branch(es).
+    
+    3. 检测分支特异性的选择压力：Use aBSREL to find lineages which have experienced episodic diversification.
+      3.1 Run aBSREL to test for selection by scanning all branches in the tree.
+      -> (1) Selection Analyses
+      -> (6) [aBSREL] Test for lineage-specific evolution using the branch-site method aBS-REL (Adaptive Branch-Site Random Effects Likelihood).
+      结果：列出经历正选择的分支。Once the analysis completes, aBSREL will print out the list of all branches with p-values below 0.05。 
+      
+      3.2Run BUSTED to test for selection by testing only an a priori selection of branches. This approach of analysis will have increased power to detect lineage-specific selection.
+      # 标注前景分支，运行后，结果类似
         
-        
-    
-        
-    
-    
-    
-    
+    4. 鉴定经历正选择的位点：
+       4.1 FUBAR适合大数据：Use FUBAR to find sites which have experienced pervasive diversification.
+        -> (1) Selection Analyses
+        -> (4) [FUBAR] Test for pervasive site-level selection using FUBAR (Fast Unconstrained Bayesian AppRoximation for inferring selection)
+        ->  选择文件：WestNileVirus_NS3.fas
+       结果：249位点经历正选择
+       
     
     PAML
     ete3
