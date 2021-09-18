@@ -340,6 +340,38 @@ neat-genreads
 
 ###  进化、选择压力分析
     HyPhy
+    1. 估计alingment范围内的唯一的w值：给定coden密码子比对以及序列的进化关系    
+        Hyphy
+        -> 6[Basic Analyses] 
+        -> 1[Analyse codon data with a variery of standard models using given tree.]
+        -> 1[Universal code]
+        -> 选择文件:/home/wuzefeng/Documents/脚本代码/data/files/WestNileVirus_NS3.fas
+        -> 模型选择：GY94CUSTOMF3X4
+        -> 2 [Global] Model parameters are shared by all branches, branch lengths are estimated independently.
+        -> input 6 character model designation (e.g:010010 defines HKY85):012345
+        -> 1 [Please choose an option (or press q to cancel selection):1]
+        结果: R代表得到的w值
+    2.  检测 alignment-wide episodic diversification.（片段性多样化选择): 有两种方法：
+        2.1 Run BUSTED to test for selection across the entire tree.
+        Hyphy
+        -> (1) Selection Analyses
+        -> (5) [BUSTED] Test for episodic gene-wide selection using BUSTED (Branch-site Unrestricted Statistical Test of Episodic Diversification).
+        -> 输入文件：/home/wuzefeng/Documents/脚本代码/data/hyphy_files/HIV.nex
+        
+        结果：5%左右的位点经历了正选择
+        2.2 Run BUSTED to test for selection on specific a priori selection of foreground branches.
+        -> 在http://veg.github.io/phylotree.js/ 选择前景分支
+        -> -> (1) Selection Analyses
+        -> (5) [BUSTED] Test for episodic gene-wide selection using BUSTED (Branch-site Unrestricted Statistical Test of Episodic Diversification).
+        
+        
+    
+        
+    
+    
+    
+    
+    
     PAML
     ete3
  
