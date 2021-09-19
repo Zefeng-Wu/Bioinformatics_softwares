@@ -382,7 +382,16 @@ neat-genreads
         ->  选择文件：WestNileVirus_NS3.fas
        结果：249位点经历正选择
        
-    
+       4.2 使用meme检测正选择位点,速度稍慢，但是仍常用
+       -> (1) Selection Analyses
+       -> (1) [MEME] Test for episodic site-level selection using MEME (Mixed Effects Model of Evolution).
+       -> 1. [**All**] Include all branches in the analysis
+       结果：得到正选择的位点
+       
+      4.3 FEL and SLAC也可以用鉴定正选择位点，但是强烈推荐MEME or FUBAR
+      
+      
+      
     PAML
     ete3
  
