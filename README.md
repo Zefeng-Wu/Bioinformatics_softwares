@@ -352,8 +352,8 @@ neat-genreads
         -> 1 [Please choose an option (or press q to cancel selection):1]
         结果: R代表得到的w值
     
-    2.  检测 alignment-wide episodic diversification.（片段性多样化选择、整体上或基因水平上的正选择位点比例): 有两种方法：
-        2.1 Run BUSTED to test for selection across the entire tree.
+    2.  检测 alignment-wide episodic diversification.（片段性多样化选择、整体上或基因水平上的正选择位点比例，检测某个基因是否至少有一个位点经历了正选择，不是位点特异性的): 有两种方法：
+        2.1 Run BUSTED to test for selection across the entire tree：BUSTED (Branch-site Unrestricted Statistical Test for Episodic Diversification) provides a gene-wide (not site-specific) test for positive selection by asking whether a gene has experienced positive selection at at least one site on at least one branch.
         Hyphy
         -> (1) Selection Analyses
         -> (5) [BUSTED] Test for episodic gene-wide selection using BUSTED (Branch-site Unrestricted Statistical Test of Episodic Diversification).
@@ -397,7 +397,10 @@ neat-genreads
       -> Choose the set of branches to use as the _test_ set: [**RECIPIENT**] Set RECIPIENT with 12 branches
       -> Choose the set of branches to use as the _reference_ set: [**DONOR**] Set DONOR with 13 branches
      结果：检测到test分支具有放松的选择压力： Evidence for *relaxation of selection* among **test** branches _relative_ to the **reference** branches at P<=0.05
-   
+    
+    总结: + fubra按照为点给出受选择的为点
+         + absrel按照分支给出受选择的分支
+         + busted给出整体基因受选择的为点的比例，但不知道那些分支或那些具体为点。 
    
    PAML
     ete3
