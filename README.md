@@ -389,6 +389,7 @@ neat-genreads
        结果：得到正选择的位点
        
       4.3 FEL and SLAC也可以用鉴定正选择位点，但是强烈推荐MEME or FUBAR
+    注意： 这几个方法中，MEME方法检测出正向选择的位点数量是最多的，SLAC检测出的数量是最少的。
     
     5. 比较树的不同部分的选择压力或检测在不同的分支选择强度是否不同： Use RELAX to compare selective pressures on different parts of the tree   
       -> (1) Selection Analyses
