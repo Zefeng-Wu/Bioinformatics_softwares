@@ -389,10 +389,16 @@ neat-genreads
        结果：得到正选择的位点
        
       4.3 FEL and SLAC也可以用鉴定正选择位点，但是强烈推荐MEME or FUBAR
-      
-      
-      
-    PAML
+    
+    5. 比较树的不同部分的选择压力或检测在不同的分支选择强度是否不同： Use RELAX to compare selective pressures on different parts of the tree   
+      -> (1) Selection Analyses
+      -> (7) [RELAX] Test for relaxation of selection pressure along a specified set of test branches using RELAX (a random effects test of selection relaxation).
+      -> Choose the set of branches to use as the _test_ set: [**RECIPIENT**] Set RECIPIENT with 12 branches
+      -> Choose the set of branches to use as the _reference_ set: [**DONOR**] Set DONOR with 13 branches
+     结果：检测到test分支具有放松的选择压力： Evidence for *relaxation of selection* among **test** branches _relative_ to the **reference** branches at P<=0.05
+   
+   
+   PAML
     ete3
  
 ### 趋同进化
