@@ -405,10 +405,9 @@ neat-genreads
    PAML
    
    
-   ete3
-   1.ete3 进化树操作：
-    
-	from ete3 import Tree
+   ## ete3
+   # 1.ete3 进化树操作：
+    from ete3 import Tree
     t = Tree()
     t.populate(15) # 随机产生15个枝的树形结构
  
