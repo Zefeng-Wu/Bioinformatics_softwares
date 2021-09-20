@@ -403,7 +403,14 @@ neat-genreads
          + busted给出整体基因受选择的为点的比例，但不知道那些分支或那些具体为点。 
    
    PAML
-    ete3
+   
+   
+   ete3
+   1.ete3 进化树操作：
+    
+	from ete3 import Tree
+    t = Tree()
+    t.populate(15) # 随机产生15个枝的树形结构
  
 ### 趋同进化
     https://github.com/CarineRey/pcoc
