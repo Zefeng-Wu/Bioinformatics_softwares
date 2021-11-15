@@ -421,7 +421,7 @@ neat-genreads
     gprofile2
 
 ## circos
-   # ticks.conf 控制刻度显示
+   ### ticks.conf 控制刻度显示
    spacing        = 10u # 显示刻度的多少
-   #
+   #### circos最大的点数为25000,如柱状图
     
