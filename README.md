@@ -420,5 +420,8 @@ neat-genreads
     goatools
     gprofile2
 
-
+## circos
+   # ticks.conf 控制刻度显示
+   spacing        = 10u # 显示刻度的多少
+   #
     
