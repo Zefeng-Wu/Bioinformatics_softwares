@@ -425,3 +425,5 @@ neat-genreads
    spacing        = 10u # 显示刻度的多少
    #### circos最大的点数为25000,如柱状图
     
+##  结构变异软件
+     MUMmer3+SyRi
