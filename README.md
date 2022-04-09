@@ -174,8 +174,9 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     ATACseqQC Guide
 
 ## <font color="#006600">eQTL</font><br/>
-    R MatrixEQTL
+    R MatrixEQTL Matrix eQTL: ultra fast eQTL analysis via large matrix operations. Bioinformatics. 2012
     Exploring regulation in tissues with eQTL networks
+    Ongen H, Buil A, Brown AA, Dermitzakis ET, Delaneau O. Fast and efficient QTL mapper for thousands of molecular phenotypes. Bioinformatics. 2016
     
 ## Python 环境之anaconda. (尤其适用于在服务器上没有sduo权限的时候安装python包)
 1.下载并装miniconda
