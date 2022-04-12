@@ -177,6 +177,15 @@ citings: The impact of short tandem repeat variation on gene expression, 2019, N
     R MatrixEQTL Matrix eQTL: ultra fast eQTL analysis via large matrix operations. Bioinformatics. 2012
     Exploring regulation in tissues with eQTL networks
     Ongen H, Buil A, Brown AA, Dermitzakis ET, Delaneau O. Fast and efficient QTL mapper for thousands of molecular phenotypes. Bioinformatics. 2016
+
+## 等位基因特异性表达
+### 1. phASER
+    Rare variant phasing and haplotypic expression from RNA sequencing with phASER (Stephane E. Castel, Pejman Mohammadi, Wendy K. Chung, Yufeng Shen & Tuuli Lappalainen; Nature communication,2016)
+    A vast resource of allelic expression data spanning human tissues (Genome Biology, 2020)
+### 2. WASP
+    allele-specific software for robust molecular quantitative trait locus discovery    
+### 3. EMASE （python）
+
     
 ## Python 环境之anaconda. (尤其适用于在服务器上没有sduo权限的时候安装python包)
 1.下载并装miniconda
