@@ -345,10 +345,24 @@ neat-genreads
 注: add_ka_and_ks_to_collinearity.pl 使用的是perl模块计算kaks，貌似用的是Nei-Gojobori algorithm 算法。而Dupgene_finder使用的方法是GMYN模型。因此二者计算出来的kaks值不一样。
 
 ##  群体基因组学
-### 1. 多态性计算
+### 1. SNP calling 
+    Nextflow pipeline
+
+### 2. SNP格式转换
+    PLINK 
+
+### 3. 多态性计算
     VCFtools: diversity (π) and Tajima’s D in regions of interest were estimated using VCFtools. (Comparative genomics sheds light on the convergent evolution of miniaturized wasps )
 
-###  进化、选择压力分析
+### 4. Admixture Graph Construction
+    TreeMix 
+    QPGRAPH
+    ADMIXTOOLS
+    ADMIXTUREGRAPH
+### 5. Demographic Modeling
+    dadi_pipeline
+
+### 3. 进化、选择压力分析
     HyPhy
     1. 估计alingment范围内的唯一的w值：给定coden密码子比对以及序列的进化关系    
         Hyphy
@@ -413,7 +427,7 @@ neat-genreads
          + busted给出整体基因受选择的为点的比例，但不知道那些分支或那些具体为点。 
    
    PAML
-   
+   GRoSS method
    
    ## ete3
    ### 1.ete3 进化树操作：
