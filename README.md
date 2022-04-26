@@ -353,6 +353,10 @@ neat-genreads
 
 ### 3. 多态性计算
     VCFtools: diversity (π) and Tajima’s D in regions of interest were estimated using VCFtools. (Comparative genomics sheds light on the convergent evolution of miniaturized wasps )
+    PopGenome R包计算Tajima's D, Fst, Fu Li's F
+
+### 选择性清除
+    SweeD--CLR选择（）
 
 ### 4. Admixture Graph Construction
     TreeMix 
