@@ -1,10 +1,8 @@
 ## 串联重复元件
     HipSTR: Genome-wide profiling of heritable and de novo STR variations, 2017, Nature Methods. (https://hipstr-tool.github.io/HipSTR)
 citings: The impact of short tandem repeat variation on gene expression, 2019, Nature genetics 
-
 ## 转录组进化
     treeExp：http://hupi.fudan.edu.cn/people/guxun
-    
 ## 基因融合 
 ### 1. star-fusion （在速度和准确率上均比较高，基于star比对结果）
 #### 1. 构建reference lib. 人类和鼠的可以从以下网址直接下载：https://data.broadinstitute.org/Trinity/CTAT_RESOURCE_LIB/; 其中plug-n是已经建立好的reference lib, 而source里面包含了所需的原始文件。从原始文件构建reference lib的命令如下；默认会在当前目录生成一个名为    ctat_genome_lib_build_dir的目录
