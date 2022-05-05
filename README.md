@@ -356,11 +356,23 @@ neat-genreads
 ### 选择性清除
     SweeD--CLR选择（）
 
-### 4. Admixture Graph Construction
-    TreeMix 
-    QPGRAPH
-    ADMIXTOOLS
-    ADMIXTUREGRAPH
+### 4. 群体遗传结构 Admixture Graph Construction
+  Admixture
+    1. admixture的输入文件为：PLINK (.bed), ordinary PLINK (.ped), or EIGENSTRAT (.geno)；所以需要使用vcftools进行格式转换
+        vcftools --vcf my.vcf --plink --out plink # 输出文件：plink.ped与plink.map文件
+    2.过滤SNP文件: 使用Plink软件。Plink是一个开放的，免费的全基因组关联分析工具。其分析的基础是基因型和表型数据。通过整合gplink 和Haploview 使得结果变得可视化。 gplink 是基于Java的图形用户界面，许多plink 命令可以通过其实现。而且易于与Haploview进行整合。Haploview是一个进行单倍型分析的一个软件。
+        plink --noweb --file plink --geno 0.05 --maf 0.05 --hwe 0.0001 --make-bed --out QC # 输出的结果为：QC.bed(binary file,genotype information)、QC.fam(first six columns of plink.bed)、QC.bim(extended MAP file:two extra cols=allele names);得到bed文件后就可以使用admixture进行分析了
+    3.群体结构分析; 如果不知道理想的K值可以设定1-5进行分析
+        for K in 1 2 3 4 5; do admixture --cv hapmap3.bed $K | tee log${K}.out; done
+    4.提取出CV值
+        grep -h CV log*.out
+    5.使用R画图
+        tbl=read.table("hapmap3.3.Q")
+        barplot(t(as.matrix(tbl)), col=rainbow(3),xlab="Individual #", ylab="Ancestry", border=NA)   
+   TreeMix 
+   QPGRAPH
+   ADMIXTOOLS
+   ADMIXTUREGRAPH
 ### 5. Demographic Modeling
     dadi_pipeline
 
