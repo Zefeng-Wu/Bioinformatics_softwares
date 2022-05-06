@@ -376,7 +376,15 @@ neat-genreads
 ### 5. Demographic Modeling
     dadi_pipeline
 ### 6. 历史有效群体大小
-    PSMC
+    > PSMC 
+    bcftools mpileup -Ou -I -f reference.fasta sample.bam | bcftools call -c -Ov | vcfutils.pl vcf2fq -d 10 -D 100 | gzip > diploid.fq.gz
+    ## -Ou : 输出未压缩的bcf文件
+    ## -I : skip indels
+    ## -f reference fasta
+    ## -c 使用原始版本的的calling算法(对应于新的-m)
+    ## -Ov ：输出未压缩vcf文件
+    ## -d -D ：depth的上下限
+    
     Stairway plot 2
     SMC++
     Fastsimcoal2 a
