@@ -357,7 +357,7 @@ neat-genreads
     SweeD--CLR选择（）
 
 ### 4. 群体遗传结构 Admixture Graph Construction
-    >Admixture
+    Admixture
     1. admixture的输入文件为：PLINK (.bed), ordinary PLINK (.ped), or EIGENSTRAT (.geno)；所以需要使用vcftools进行格式转换
         vcftools --vcf my.vcf --plink --out plink # 输出文件：plink.ped与plink.map文件
     2.过滤SNP文件: 使用Plink软件。Plink是一个开放的，免费的全基因组关联分析工具。其分析的基础是基因型和表型数据。通过整合gplink 和Haploview 使得结果变得可视化。 gplink 是基于Java的图形用户界面，许多plink 命令可以通过其实现。而且易于与Haploview进行整合。Haploview是一个进行单倍型分析的一个软件。
@@ -375,8 +375,12 @@ neat-genreads
     ADMIXTUREGRAPH
 ### 5. Demographic Modeling
     dadi_pipeline
-
-### 3. 进化、选择压力分析
+### 6. 历史有效群体大小
+    PSMC
+    Stairway plot 2
+    SMC++
+    Fastsimcoal2 a
+### 7. 进化、选择压力分析
     HyPhy
     1. 估计alingment范围内的唯一的w值：给定coden密码子比对以及序列的进化关系    
         Hyphy
