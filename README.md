@@ -477,3 +477,7 @@ neat-genreads
     
 ##  结构变异软件
      MUMmer3+SyRi
+## motif格式转换
+     universalmotif (bioconductor) : meme to homer
+     biopython
+     
