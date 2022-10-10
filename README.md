@@ -480,4 +480,5 @@ neat-genreads
 ## motif格式转换
      universalmotif (bioconductor) : meme to homer
      biopython
-     
+## 双向best blast
+    metablastr （biocondcutor）
