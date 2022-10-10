@@ -482,3 +482,22 @@ neat-genreads
      biopython
 ## 双向best blast
     metablastr （biocondcutor）
+    library(metablastr)
+    tair2medicago <- blast_best_reciprocal_hit(
+        query = "~/Genomes/Plants/Arabidopsis_thaliana/Tair_longest.pep.fa",
+        subject = "~/Genomes/Plants/Medicago_truncatula/Medicago_truncatula.mody.fa",
+        search_type = "protein_to_protein",
+        strand = "both",
+        output.path = "~/Genomes/best_blast_hits/",
+        is.subject.db = FALSE,
+        task = "blastp",
+        db.import = FALSE,
+        postgres.user = NULL,
+        evalue = 0.00001,
+        out.format = "csv",
+        cores = 4,
+        max.target.seqs = 10000,
+        db.soft.mask = FALSE,
+        db.hard.mask = FALSE,
+        blast.path = NULL
+        )
